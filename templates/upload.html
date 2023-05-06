@@ -1,0 +1,90 @@
+
+<html>  
+    <head>  
+        <title> Skin disease classification</title> 
+        <style>*{
+            box-sizing:border-box;
+            margin: 0;
+            padding: 0;
+          }
+          $colors: (
+            slide-right: #e75480
+          );
+          
+          @each $colorName, $color in $colors {
+            ::file-selector-button{
+              --color: #{$color};
+              --hover: #{adjust-hue($color, 45deg)};
+            }
+          }
+
+          form{
+            margin: auto;
+          }
+          
+          ::file-selector-button{
+            font-size: 1.5rem;
+            border: none;
+            background: white;
+            border: 1px solid var(--color);
+            color: var(--color);
+            transition: 1.3s;
+            padding: 1rem 2rem;
+            &:hover,
+            &:focus { 
+              border-color: var(--hover);
+              color: white;
+            }
+            font-size: 1.5rem; 
+            width: 13.5rem;
+            height: 5rem;
+            border-radius: 2rem;
+          }
+          
+          ::file-selector-button:hover,
+          ::file-selector-button:focus {
+            box-shadow: inset 15rem 0 0 0 var(--hover);
+          }
+          
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btn {
+  border: 2px solid gray;
+  color: rgb(0, 0, 0);
+  background-color: white;
+  padding: 15px 80px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+body{
+     display: flex;
+    height: 100vh;
+    width: 100%;
+    background-image: url("/static/back.jpg");
+    background-color: #272b34;
+    }
+  </style> 
+
+    </head>  
+    <body >  
+        <form action = "/success" method = "post" enctype="multipart/form-data">  
+            <input type="file" name="file" / required>  
+            <br><br><br><br><br>
+            <input type = "submit" value="Upload" class="btn">  
+        </form>  
+    </body>  
+    </html>
